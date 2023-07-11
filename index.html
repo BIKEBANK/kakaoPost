@@ -54,7 +54,7 @@
               zonecode: data.zonecode,
             };
             
-            if (data.addressType == "R") {
+            if (data.userSelectedType == "R") {
               postData = {
                   roadAddress: data.roadAddress,
                   sido: data.sido,
@@ -62,7 +62,7 @@
                   roadname: data.roadname,
                   zonecode: data.zonecode
               };
-            } else if (data.addressType == "J") {
+            } else {
               postData = {
                   jibunAddress: jibunAddress,
                   sido: data.sido,
@@ -77,7 +77,7 @@
 
             // Android일 경우
             if (typeof Android !== "undefined") {
-                if (data.addressType == "R") {
+                if (data.userSelectedType == "R") {
                    window.Android.roadAddress(postData);
                 } else {
                    window.Android.jibunAddress(postData);
@@ -86,7 +86,7 @@
             
             // iOS일 경우
             if (typeof webkit !== "undefined" && typeof webkit.messageHandlers !== "undefined") {
-                if (data.addressType == "R") {
+                if (data.userSelectedType == "R") {
                    window.webkit.messageHandlers.roadAddress.postMessage(postData);
                 } else {
                    window.webkit.messageHandlers.jibunAddress.postMessage(postData);
