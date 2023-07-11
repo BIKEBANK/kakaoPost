@@ -62,7 +62,7 @@
                   roadname: data.roadname,
                   zonecode: data.zonecode
               };
-            } else {
+            } else if (data.addressType == "J") {
               postData = {
                   jibunAddress: jibunAddress,
                   sido: data.sido,
