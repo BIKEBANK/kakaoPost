@@ -85,7 +85,7 @@
             }
             
             // iOS일 경우
-            if (typeof webkit !== "undefined" && typeof webkit.messageHandlers !== "undefined" && typeof webkit.messageHandlers.searchResult !== "undefined") {
+            if (typeof webkit !== "undefined" && typeof webkit.messageHandlers !== "undefined") {
                 if (data.addressType == "R") {
                    window.webkit.messageHandlers.roadAddress.postMessage(postData);
                 } else {
