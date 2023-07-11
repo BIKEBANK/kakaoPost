@@ -53,15 +53,44 @@
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
             };
+            
+            if (data.addressType == "R") {
+              postData = {
+                  roadAddress: data.roadAddress,
+                  sido: data.sido,
+                  sigungu: data.sigungu,
+                  roadname: data.roadname,
+                  zonecode: data.zonecode
+              };
+            } else {
+              postDate = {
+                  jibunAddress: jibunAddress,
+                  sido: data.sido,
+                  sigungu: data.sigungu,
+                  dongname: data.bname,
+                  jibunAddressEnglish: data.autoJibunAddressEnglish,
+                  zonecode: data.zonecode
+              };
+            } 
+            
+         
 
             // Android일 경우
             if (typeof Android !== "undefined") {
-              window.Android.searchResult(postData);
+                if (data.addressType == "R") {
+                   window.Android.roadAddress(postData);
+                } else {
+                   window.Android.roadAddress(postData);
+                }
             }
             
             // iOS일 경우
             if (typeof webkit !== "undefined" && typeof webkit.messageHandlers !== "undefined" && typeof webkit.messageHandlers.searchResult !== "undefined") {
-              postMessageToiOS(postData);
+                if (data.addressType == "R") {
+                   window.webkit.messageHandlers.roadAddress.postMessage(postData);
+                } else {
+                   window.webkit.messageHandlers.jibunAddress.postMessage(postData);
+                }
             }
           },
           width: "100%",
