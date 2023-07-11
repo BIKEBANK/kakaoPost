@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ko">
   <head>
     <title>주소 찾기</title>
@@ -55,14 +54,15 @@
               zonecode: data.zonecode,
             };
 
-            var varUA = navigator.userAgent.toLowerCase();
-
-            if (varUA.indexOf("android") > -1 {
-                window.Android.searchResult(postData);
-            } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
-                 window.postMessageToiOS(postData);
+            // Android일 경우
+            if (typeof Android !== "undefined") {
+              Android.postMessage(JSON.stringify(postData));
             }
-           
+            
+            // iOS일 경우
+            if (typeof webkit !== "undefined" && typeof webkit.messageHandlers !== "undefined" && typeof webkit.messageHandlers.searchResult !== "undefined") {
+              postMessageToiOS(JSON.stringify(postData));
+            }
           },
           width: "100%",
           height: "100%",
