@@ -79,9 +79,9 @@
             // Android일 경우
             if (typeof Android !== "undefined") {
                 if (data.userSelectedType == "R") {
-                   window.Android.roadAddress(postData);
+                   window.Android.roadAddress(JSON.stringify(postData));
                 } else {
-                   window.Android.jibunAddress(postData);
+                   window.Android.jibunAddress(JSON.stringify(postData));
                 }
             }
             
