@@ -63,12 +63,13 @@
                   zonecode: data.zonecode
               };
             } else {
+              const addressStrArray = data.autoJibunAddressEnglish.split(" ");
               postData = {
                   jibunAddress: jibunAddress,
                   sido: data.sido,
                   sigungu: data.sigungu,
                   dongname: data.bname,
-                  jibunAddressEnglish: data.autoJibunAddressEnglish,
+                  jibunAddressEnglish: addressStrArray[addressStrArray.length-1],
                   zonecode: data.zonecode
               };
             } 
