@@ -55,11 +55,13 @@
             };
             
             if (data.userSelectedType == "R") {
+              const addressStrArray = roadAddress.split(" ");
               postData = {
                   roadAddress: data.roadAddress,
                   sido: data.sido,
                   sigungu: data.sigungu,
                   roadname: data.roadname,
+                  roadnumber: addressStrArray[addressStrArray.length-1],
                   zonecode: data.zonecode
               };
             } else {
