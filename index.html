@@ -56,12 +56,12 @@
 
             // Android일 경우
             if (typeof Android !== "undefined") {
-              Android.postMessage(JSON.stringify(postData));
+              window.Android.searchResult(fullRoadAddr);
             }
             
             // iOS일 경우
             if (typeof webkit !== "undefined" && typeof webkit.messageHandlers !== "undefined" && typeof webkit.messageHandlers.searchResult !== "undefined") {
-              postMessageToiOS(JSON.stringify(postData));
+              postMessageToiOS(postData);
             }
           },
           width: "100%",
