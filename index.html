@@ -57,6 +57,7 @@
             if (data.userSelectedType == "R") {
               const addressStrArray = data.roadAddress.split(" ");
               postData = {
+                  jibunAddress: jibunAddress,
                   roadAddress: data.roadAddress,
                   sido: data.sido,
                   sigungu: data.sigungu,
@@ -68,6 +69,7 @@
               const addressStrArray = jibunAddress.split(" ");
               postData = {
                   jibunAddress: jibunAddress,
+                  roadAddress: data.roadAddress,
                   sido: data.sido,
                   sigungu: data.sigungu,
                   dongname: data.bname,
