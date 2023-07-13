@@ -53,26 +53,38 @@
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
             };
+
+            var dongname = "";
             
             if (data.userSelectedType == "R") {
               const addressStrArray = data.roadAddress.split(" ");
+              if (data.bname1 == "") {
+                  dongname = data.roadname;
+              } else {
+                  dongname = data.bname1 + " " + data.roadname;
+              }
               postData = {
                   jibunAddress: jibunAddress,
                   roadAddress: data.roadAddress,
                   sido: data.sido,
                   sigungu: data.sigungu,
-                  roadname: data.roadname,
+                  roadname: dongname,
                   roadnumber: addressStrArray[addressStrArray.length-1],
                   zonecode: data.zonecode
               };
             } else {
               const addressStrArray = jibunAddress.split(" ");
+              if (data.bname1 == "") {
+                  dongname = data.bname;
+              } else {
+                  dongname = data.bname1 + " " + data.bname;
+              }
               postData = {
                   jibunAddress: jibunAddress,
                   roadAddress: data.roadAddress,
                   sido: data.sido,
                   sigungu: data.sigungu,
-                  dongname: data.bname,
+                  dongname: dongname,
                   jibun: addressStrArray[addressStrArray.length-1],
                   zonecode: data.zonecode
               };
