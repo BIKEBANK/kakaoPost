@@ -74,6 +74,7 @@
               };
             } else {
               const addressStrArray = jibunAddress.split(" ");
+              const roadAddressStrArray = data.roadAddress.split(" ");
               if (data.bname1 == "") {
                   dongname = data.bname;
               } else {
@@ -86,7 +87,9 @@
                   sigungu: data.sigungu,
                   dongname: dongname,
                   jibun: addressStrArray[addressStrArray.length-1],
-                  zonecode: data.zonecode
+                  zonecode: data.zonecode,
+                  roadname: data.roadname,
+                  roadnumber: roadAddressStrArray[roadAddressStrArray.length-1]
               };
             } 
             
